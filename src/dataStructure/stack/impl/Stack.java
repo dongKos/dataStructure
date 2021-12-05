@@ -15,7 +15,7 @@ public class Stack<E> {
 	}
 	
 	public void push(E input) throws Exception {
-		if(top < size) {
+		if(top != size) {
 			data[top++] = input;
 		} else {
 			throw new Exception("Stack Overflow!");
@@ -24,7 +24,12 @@ public class Stack<E> {
 	
 	public Object pop() throws Exception {
 		if(top == 0) throw new Exception("Stack Underflow!");
-		return data[--top];
+		else {
+			Object rtnData = data[top-1];
+			data[--top] = null;
+			size--;
+			return rtnData;
+		}
 	}
 	
 	public Object peek() {
@@ -33,7 +38,7 @@ public class Stack<E> {
 	}
 	
 	public boolean empty() {
-		return top == 0;
+		return size == 0;
 	}
 	
 	public int search(E input) {

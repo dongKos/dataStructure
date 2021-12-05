@@ -31,7 +31,10 @@ public class StackRunner {
 		st.push(5);
 		st.push(6);
 		
-		System.out.println(st.search(100));
+		while(!st.empty()) {
+			System.out.println(st.pop());
+		}
+		
 	}
 
 }
